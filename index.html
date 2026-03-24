@@ -13,16 +13,18 @@ body{
   color:white;
 }
 
+/* �ST BAR */
 .topbar{
   padding:20px;
   font-size:22px;
   font-weight:bold;
 }
 
+/* ANA ALAN */
 .hero{
   text-align:center;
-  padding:70px 20px;
-  max-width:800px;
+  padding:60px 20px 20px;
+  max-width:900px;
   margin:auto;
 }
 
@@ -31,9 +33,10 @@ body{
   line-height:1.6;
 }
 
+/* BUTON */
 .btn{
   display:inline-block;
-  margin-top:25px;
+  margin-top:20px;
   padding:12px 25px;
   background:white;
   color:black;
@@ -42,19 +45,23 @@ body{
   font-weight:bold;
 }
 
+/* GRID SSTEM (D�ZELTLD) */
 .cards{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  margin-top:40px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap:15px;
+  margin-top:40px;
+  max-width:800px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
+/* KART */
 .card{
   background:#111827;
   padding:20px;
   border-radius:12px;
-  width:220px;
+  text-align:center;
   transition:0.2s;
 }
 
@@ -62,6 +69,7 @@ body{
   transform:translateY(-5px);
 }
 
+/* FOOTER */
 footer{
   text-align:center;
   margin-top:60px;
@@ -77,23 +85,23 @@ footer{
 <div class="topbar">CarmySoft</div>
 
 <div class="hero">
-  <h1>Hoş Geldiniz</h1>
+  <h1>Ho Geldiniz</h1>
 
   <p>
-    Carmysoft olarak bağımsız yazılım projeleri yapıyoruz.
-    Sizin desteğiniz bizim için önemli.
+    Carmysoft olarak bamsz yazlm projeleri yapyoruz.
+    Sizin desteiniz bizim i�in �nemli.
   </p>
 
-  <a class="btn" href="apps.html">Uygulamaları Keşfet</a>
+  <a class="btn" href="apps.html">Uygulamalar Kefet</a>
 
   <div class="cards">
-    <div class="card">⚡ Hızlı yazılımlar</div>
-    <div class="card">📦 Yeni projeler</div>
-    <div class="card">💡 Sürekli geliştirme</div>
+    <div class="card"> Hzl yazlmlar</div>
+    <div class="card"> Yeni projeler</div>
+    <div class="card"> S�rekli gelitirme</div>
   </div>
 </div>
 
-<footer>© 2026 CarmySoft</footer>
+<footer>� 2026 CarmySoft</footer>
 
 </body>
 </html>
