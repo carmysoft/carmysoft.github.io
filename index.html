@@ -1,107 +1,120 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CarmySoft</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarmySoft | Bamsz Yazlm Projeleri</title>
 
-<style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background: radial-gradient(circle at top, #1f2937, #000);
-  color:white;
-  -webkit-text-size-adjust: 100%;
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at top, #1f2937, #000);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-/* ÜST */
-.topbar{
-  padding:20px;
-  font-size:22px;
-  font-weight:bold;
-}
+        /* ÜST BAR */
+        .topbar {
+            padding: 25px 50px;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
 
-/* ANA */
-.hero{
-  text-align:center;
-  padding:50px 15px;
-  max-width:900px;
-  margin:auto;
-}
+        /* ANA ÇERK */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: auto;
+            flex: 1; /* Footer' aa itmek için */
+        }
 
-.hero p{
-  color:#d1d5db;
-  line-height:1.6;
-}
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
 
-/* BUTON */
-.btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 25px;
-  background:white;
-  color:black;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
-}
+        .hero p {
+            color: #d1d5db;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
 
-/* GRID FIX (ASIL DÜZELTME BURADA) */
-.cards{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap:15px;
-  margin-top:40px;
-  max-width:800px;
-  margin-left:auto;
-  margin-right:auto;
-  padding:0 10px;
-  box-sizing:border-box;
-}
+        /* BUTON */
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 30px;
+            background: #fff;
+            color: #000;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
 
-.card{
-  background:#111827;
-  padding:18px;
-  border-radius:12px;
-  text-align:center;
-  word-break:break-word;
-}
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+        }
 
-/* FOOTER */
-footer{
-  text-align:center;
-  margin-top:50px;
-  font-size:12px;
-  color:#9ca3af;
-}
-</style>
+        /* KARTLAR */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+            padding: 0 20px;
+        }
 
+        .card {
+            background: rgba(17, 24, 39, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #374151;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover {
+            border-color: #60a5fa;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: #9ca3af;
+            border-top: 1px solid #1f2937;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="topbar">CarmySoft</div>
+    <nav class="topbar">CarmySoft</nav>
 
-<div class="hero">
+    <main class="hero">
+        <h1>Ho Geldiniz</h1>
+        <p>
+            CarmySoft olarak, teknolojiye yön veren bamsz yazlm projeleri gelitiriyoruz. 
+            Yenilikçi çözümlerimizle dijital dünyay daha hzl ve verimli hale getirmeyi amaçlyoruz.
+        </p>
 
-  <h1>Ho Geldiniz</h1>
+        <a class="btn" href="apps.html">Uygulamalar Kefet</a>
 
-  <p>
-    Carmysoft olarak bamsz yazlm projeleri yapyoruz.
-    Sizin desteiniz bizim için önemli.
-  </p>
+        <div class="cards">
+            <div class="card"> <strong>Hzl Yazlmlar</strong><br><small>Performans odakl kod yaps.</small></div>
+            <div class="card"> <strong>Yeni Projeler</strong><br><small>Sürekli genileyen ürün yelpazesi.</small></div>
+            <div class="card"> <strong>Sürekli Geliim</strong><br><small>Kullanc geri bildirimleriyle evrim.</small></div>
+        </div>
+    </main>
 
-  <a class="btn" href="apps.html">Uygulamalar Kefet</a>
-
-  <div class="cards">
-    <div class="card"> Hzl yazlmlar</div>
-    <div class="card"> Yeni projeler</div>
-    <div class="card"> Sürekli gelitirme</div>
-  </div>
-
-</div>
-
-<footer>© 2026 CarmySoft</footer>
+    <footer>© 2026 CarmySoft | Tüm Haklar Sakldr.</footer>
 
 </body>
 </html>
