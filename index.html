@@ -1,103 +1,99 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <title>CarmySoft</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CarmySoft</title>
 
-    <meta name="google-site-verification" content="L_OaJ4Cy6utIAYh5AVqKebIx1rUdny2eh9_FFojPKCg" />
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background: radial-gradient(circle at top, #1f2937, #000);
+  color:white;
+}
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: radial-gradient(circle at top, #111827, #000000);
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+.topbar{
+  padding:20px;
+  font-size:22px;
+  font-weight:bold;
+}
 
-        .container {
-            text-align: center;
-            background: rgba(15, 15, 15, 0.95);
-            padding: 45px 35px;
-            border-radius: 18px;
-            width: 90%;
-            max-width: 460px;
-            box-shadow: 0 0 40px rgba(0,0,0,0.9);
-        }
+.hero{
+  text-align:center;
+  padding:70px 20px;
+  max-width:800px;
+  margin:auto;
+}
 
-        h1 {
-            margin-bottom: 12px;
-            font-size: 30px;
-            letter-spacing: 1.2px;
-        }
+.hero p{
+  color:#d1d5db;
+  line-height:1.6;
+}
 
-        p {
-            font-size: 15px;
-            line-height: 1.7;
-            color: #d1d5db;
-            margin-bottom: 30px;
-        }
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:12px 25px;
+  background:white;
+  color:black;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-        a.download {
-            display: inline-block;
-            padding: 15px 34px;
-            background: linear-gradient(90deg, #ffffff, #e5e7eb);
-            color: #000000;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 10px;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
-        }
+.cards{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:40px;
+  gap:15px;
+}
 
-        a.download:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255,255,255,0.2);
-        }
+.card{
+  background:#111827;
+  padding:20px;
+  border-radius:12px;
+  width:220px;
+  transition:0.2s;
+}
 
-        .warning {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #fbbf24;
-        }
+.card:hover{
+  transform:translateY(-5px);
+}
 
-        footer {
-            margin-top: 30px;
-            font-size: 12px;
-            color: #9ca3af;
-        }
-    </style>
+footer{
+  text-align:center;
+  margin-top:60px;
+  font-size:12px;
+  color:#9ca3af;
+}
+</style>
+
 </head>
+
 <body>
 
-<div class="container">
+<div class="topbar">CarmySoft</div>
 
-    <h1>CarmySoft</h1>
+<div class="hero">
+  <h1>Hoş Geldiniz</h1>
 
-    <p>
-        CarmySoft, sade, hızlı ve güvenilir masaüstü yazılımlar
-        geliştirmeyi hedefleyen bağımsız bir yazılım projesidir.
-        <br><br>
-        Aşağıdan <b>File Manager</b> uygulamasının en güncel sürümünü indirebilirsiniz.
-    </p>
+  <p>
+    Carmysoft olarak bağımsız yazılım projeleri yapıyoruz.
+    Sizin desteğiniz bizim için önemli.
+  </p>
 
-    <a class="download" href="https://drive.google.com/file/d/1C8ZPTZQk1Ng86YSoOwGT8MBWpswAL8Zb/view?usp=drive_link" download>
-        File Manager İndir
-    </a>
+  <a class="btn" href="apps.html">Uygulamaları Keşfet</a>
 
-    <p class="warning">
-        ⚠️ Google Drive üzerinden indirilen dosyalar bazı tarayıcılar veya Windows tarafından güvenlik uyarısı gösterebilir. 
-        Bu normaldir, dosya güvenlidir.
-    </p>
-
-    <footer>
-        © 2026 CarmySoft
-    </footer>
-
+  <div class="cards">
+    <div class="card">⚡ Hızlı yazılımlar</div>
+    <div class="card">📦 Yeni projeler</div>
+    <div class="card">💡 Sürekli geliştirme</div>
+  </div>
 </div>
+
+<footer>© 2026 CarmySoft</footer>
 
 </body>
 </html>
