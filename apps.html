@@ -1,138 +1,121 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Uygulamalar</title>
-
-<style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:#111;
-  color:white;
-}
-
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  padding:15px 20px;
-  font-size:20px;
-  font-weight:bold;
-}
-
-.container{
-  text-align:center;
-  margin-top:40px;
-}
-
-.card{
-  background:#222;
-  margin:20px auto;
-  padding:20px;
-  width:250px;
-  border-radius:10px;
-  transition:0.2s;
-}
-
-.card:hover{
-  transform:translateY(-5px);
-}
-
-button{
-  padding:8px 15px;
-  border:none;
-  background:white;
-  color:black;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-/* OVERLAY */
-.overlay{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.8);
-  display:none;
-  justify-content:center;
-  align-items:center;
-}
-
-.popup{
-  background:#fff;
-  color:#000;
-  padding:20px;
-  border-radius:12px;
-  width:300px;
-  text-align:center;
-  animation:pop 0.2s ease;
-}
-
-@keyframes pop{
-  from{transform:scale(0.8); opacity:0;}
-  to{transform:scale(1); opacity:1;}
-}
-
-.close{
-  float:right;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-a{
-  display:inline-block;
-  margin-top:10px;
-  padding:10px 15px;
-  background:black;
-  color:white;
-  text-decoration:none;
-  border-radius:6px;
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarmySoft | Uygulamalar</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; font-family: 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at top, #1f2937, #000);
+            color: white; min-height: 100vh;
+        }
+        .topbar { padding: 20px 30px; font-size: 22px; font-weight: bold; }
+        .topbar a { color: white; text-decoration: none; }
+        .container { text-align: center; padding: 40px 20px; max-width: 800px; margin: auto; }
+        .app-card {
+            background: rgba(31, 41, 55, 0.4); padding: 30px; border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(5px);
+            width: 280px; margin: 30px auto; transition: 0.3s;
+        }
+        .app-card:hover { transform: translateY(-5px); border-color: #4da6ff; }
+        .app-icon { font-size: 50px; margin-bottom: 15px; }
+        .btn {
+            background: #4da6ff; color: white; border: none; padding: 10px 20px;
+            border-radius: 10px; cursor: pointer; font-weight: bold; width: 100%;
+        }
+        
+        /* Popup Styles */
+        .overlay {
+            display: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(10px); z-index: 1000;
+        }
+        .popup {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: #111827; width: 90%; max-width: 400px;
+            padding: 30px; border-radius: 25px; border: 1px solid #374151;
+            text-align: center;
+        }
+        .close-btn {
+            position: absolute; top: 15px; right: 20px;
+            font-size: 24px; cursor: pointer; color: #9ca3af;
+        }
+        .screenshot-frame {
+            background: #1f2937; border-radius: 15px;
+            padding: 10px; margin: 20px 0; border: 1px solid #374151;
+        }
+        .screenshot { width: 100%; border-radius: 10px; }
+        .download-btn {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white; border: none; padding: 15px; border-radius: 12px;
+            font-size: 16px; font-weight: bold; cursor: pointer; width: 100%;
+            display: inline-block; text-decoration: none; transition: 0.2s;
+        }
+        .download-btn:hover { opacity: 0.9; transform: scale(1.02); }
+        footer { margin-top: 50px; padding: 40px; text-align: center; border-top: 1px solid #1f2937; }
+    </style>
 </head>
-
 <body>
 
-<div class="topbar">
-  <div>CarmySoft</div>
-</div>
+    <div class="topbar">
+        <a href="index.html">CarmySoft</a>
+    </div>
 
-<div class="container">
-  <h2>Uygulamalar</h2>
+    <div class="container">
+        <h1 style="font-size: 36px; margin-bottom: 10px;">Uygulamalar</h1>
+        <p style="color: #9ca3af; margin-bottom: 40px;">CarmySoft tarafından geliştirilen profesyonel araçlar.</p>
 
-  <div class="card">
-    <h3>File Manager</h3>
-    <button onclick="openPopup()">Aç</button>
-  </div>
-</div>
+        <div class="app-card">
+            <div class="app-icon">📁</div>
+            <h3 style="margin: 10px 0;">CarMyFile</h3>
+            <p style="color: #9ca3af; font-size: 14px; margin-bottom: 20px;">Dosyalarınızı saniyeler içinde organize edin ve yönetin.</p>
+            <button class="btn" onclick="openPopup()">İncele & İndir</button>
+        </div>
+    </div>
 
-<!-- OVERLAY -->
-<div class="overlay" id="overlay">
-  <div class="popup">
-    <span class="close" onclick="closePopup()">X</span>
+    <div id="popupOverlay" class="overlay">
+        <div class="popup">
+            <span class="close-btn" onclick="closePopup()">✕</span>
+            <h2 style="color: #4da6ff; margin-bottom: 5px;">CarMyFile v1.0</h2>
+            <p style="font-size: 13px; color: #9ca3af;">Dosyalarınızı saniyeler içinde organize edin.</p>
+            
+            <div class="screenshot-frame">
+                <img src="ekran_goruntusu.png" alt="Uygulama Görüntüsü" class="screenshot">
+            </div>
 
-    <h2>File Manager</h2>
-    <p>Hızlı ve sade dosya yöneticisi</p>
+            <a href="https://github.com/carmysoft/carmysoft.github.io/releases/download/v1.0.0/CarmyFile.zip" class="download-btn">
+                Dosyayı İndir (.zip)
+            </a>
 
-    <a href="https://drive.google.com/file/d/1C8ZPTZQk1Ng86YSoOwGT8MBWpswAL8Zb/view?usp=drive_link">
-      İndir
-    </a>
-  </div>
-</div>
+            <p style="font-size: 11px; color: #f87171; margin-top: 15px; line-height: 1.4; text-align: left; padding: 0 10px;">
+                ⚠️ <b>Göz Ardı Edilebilir Uyarı:</b> Windows "Kişisel bilgisayarınızı korudu" uyarısı verirse; 
+                <i>Ek Bilgi</i> kısmına tıklayıp <i>Yine de çalıştır</i> diyerek uygulamayı başlatabilirsiniz.
+            </p>
+        </div>
+    </div>
 
-<script>
-function openPopup(){
-  document.getElementById("overlay").style.display = "flex";
-}
+    <footer>
+        <p style="color: #9ca3af; font-size: 14px; margin-bottom: 12px;">
+            Bir hata mı buldunuz veya yeni bir fikriniz mi var? Destek hattımızdan bize ulaşın.
+        </p>
+        <a href="mailto:carmysoft.destek@gmail.com" style="color: #4da6ff; text-decoration: none; font-weight: bold; border: 1px solid #4da6ff; padding: 8px 25px; border-radius: 50px; display: inline-block;">
+            carmysoft.destek@gmail.com
+        </a>
+        <p style="color: #4b5563; font-size: 12px; margin-top: 40px;">
+            © 2026 CarmySoft | Tüm Hakları Saklıdır.
+        </p>
+    </footer>
 
-function closePopup(){
-  document.getElementById("overlay").style.display = "none";
-}
-</script>
+    <script>
+        function openPopup() { document.getElementById('popupOverlay').style.display = 'block'; }
+        function closePopup() { document.getElementById('popupOverlay').style.display = 'none'; }
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('popupOverlay')) { closePopup(); }
+        }
+    </script>
 
 </body>
 </html>
