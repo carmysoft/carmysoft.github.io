@@ -20,65 +20,56 @@
             width: 280px; margin: 30px auto; transition: 0.3s;
         }
         .app-card:hover { transform: translateY(-5px); border-color: #4da6ff; }
-        .app-icon { font-size: 50px; margin-bottom: 15px; }
-        .btn {
-            background: #4da6ff; color: white; border: none; padding: 10px 20px;
-            border-radius: 10px; cursor: pointer; font-weight: bold; width: 100%;
+        
+        button.btn-incele {
+            padding: 10px 25px; border: none; background: #4da6ff;
+            color: white; border-radius: 50px; font-weight: bold; cursor: pointer;
         }
         
-        /* Popup Styles */
         .overlay {
-            display: none; position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%; background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(10px); z-index: 1000;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); display: none; justify-content: center; align-items: center; z-index: 1000;
         }
         .popup {
-            position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            background: #111827; width: 90%; max-width: 400px;
-            padding: 30px; border-radius: 25px; border: 1px solid #374151;
-            text-align: center;
+            background: #1f2937; padding: 25px; border-radius: 25px;
+            width: 90%; max-width: 400px; text-align: center; border: 1px solid #4da6ff;
+            position: relative; animation: pop 0.3s ease;
         }
-        .close-btn {
-            position: absolute; top: 15px; right: 20px;
-            font-size: 24px; cursor: pointer; color: #9ca3af;
-        }
+        @keyframes pop { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .close { position: absolute; right: 20px; top: 15px; cursor: pointer; font-size: 20px; color: #9ca3af; }
+        
         .screenshot-frame {
-            background: #1f2937; border-radius: 15px;
-            padding: 10px; margin: 20px 0; border: 1px solid #374151;
+            background: rgba(0, 0, 0, 0.3); border-radius: 12px;
+            margin: 20px 0; padding: 5px; border: 1px solid rgba(255,255,255,0.1);
         }
-        .screenshot { width: 100%; border-radius: 10px; }
-        .download-btn {
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-            color: white; border: none; padding: 15px; border-radius: 12px;
-            font-size: 16px; font-weight: bold; cursor: pointer; width: 100%;
-            display: inline-block; text-decoration: none; transition: 0.2s;
+        .screenshot { width: 100%; border-radius: 8px; display: block; }
+        
+        .download-link {
+            display: block; padding: 15px; background: #10b981;
+            color: white; border-radius: 12px; font-weight: bold;
+            text-decoration: none; margin-top: 10px; transition: 0.2s;
         }
-        .download-btn:hover { opacity: 0.9; transform: scale(1.02); }
-        footer { margin-top: 50px; padding: 40px; text-align: center; border-top: 1px solid #1f2937; }
+        .download-link:hover { background: #059669; transform: scale(1.02); }
+
+        footer { text-align: center; padding: 40px; border-top: 1px solid #1f2937; margin-top: 80px; }
     </style>
 </head>
 <body>
-
-    <div class="topbar">
-        <a href="index.html">CarmySoft</a>
-    </div>
+    <div class="topbar"><a href="index.html">← CarmySoft</a></div>
 
     <div class="container">
-        <h1 style="font-size: 36px; margin-bottom: 10px;">Uygulamalar</h1>
-        <p style="color: #9ca3af; margin-bottom: 40px;">CarmySoft tarafından geliştirilen profesyonel araçlar.</p>
-
+        <h1>Uygulamalar</h1>
         <div class="app-card">
-            <div class="app-icon">📁</div>
-            <h3 style="margin: 10px 0;">CarMyFile</h3>
-            <p style="color: #9ca3af; font-size: 14px; margin-bottom: 20px;">Dosyalarınızı saniyeler içinde organize edin ve yönetin.</p>
-            <button class="btn" onclick="openPopup()">İncele & İndir</button>
+            <div style="font-size: 40px; margin-bottom: 10px;">📁</div>
+            <h3>CarMyFile</h3>
+            <p style="color: #9ca3af; font-size: 14px; margin-bottom: 20px;">Dosyalarınızı hızla organize edin.</p>
+            <button class="btn-incele" onclick="openPopup()">İncele & İndir</button>
         </div>
     </div>
 
-    <div id="popupOverlay" class="overlay">
+    <div class="overlay" id="overlay">
         <div class="popup">
-            <span class="close-btn" onclick="closePopup()">✕</span>
+            <span class="close" onclick="closePopup()">✕</span>
             <h2 style="color: #4da6ff; margin-bottom: 5px;">CarMyFile v1.0</h2>
             <p style="font-size: 13px; color: #9ca3af;">Dosyalarınızı saniyeler içinde organize edin.</p>
             
@@ -86,13 +77,12 @@
                 <img src="ekran_goruntusu.png" alt="Uygulama Görüntüsü" class="screenshot">
             </div>
 
-            <a href="https://github.com/carmysoft/carmysoft.github.io/releases/download/v1.0.0/CarmyFile.zip" class="download-btn">
+            <a href="https://github.com/carmysoft/carmysoft.github.io/releases/download/v1.0.0/CarmyFile.zip" class="download-link">
                 Dosyayı İndir (.zip)
             </a>
 
-            <p style="font-size: 11px; color: #f87171; margin-top: 15px; line-height: 1.4; text-align: left; padding: 0 10px;">
-                ⚠️ <b>Göz Ardı Edilebilir Uyarı:</b> Windows "Kişisel bilgisayarınızı korudu" uyarısı verirse; 
-                <i>Ek Bilgi</i> kısmına tıklayıp <i>Yine de çalıştır</i> diyerek uygulamayı başlatabilirsiniz.
+            <p style="font-size: 11px; color: #f87171; margin-top: 15px; line-height: 1.4; text-align: left; padding: 0 5px;">
+                ⚠️ <b>Önemli:</b> Windows koruma uyarısı verirse; <i>Ek Bilgi</i> -> <i>Yine de çalıştır</i> diyerek uygulamayı açabilirsiniz.
             </p>
         </div>
     </div>
@@ -110,12 +100,9 @@
     </footer>
 
     <script>
-        function openPopup() { document.getElementById('popupOverlay').style.display = 'block'; }
-        function closePopup() { document.getElementById('popupOverlay').style.display = 'none'; }
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('popupOverlay')) { closePopup(); }
-        }
+        function openPopup() { document.getElementById("overlay").style.display = "flex"; }
+        function closePopup() { document.getElementById("overlay").style.display = "none"; }
+        window.onclick = function(event) { if (event.target == document.getElementById("overlay")) { closePopup(); } }
     </script>
-
 </body>
 </html>
