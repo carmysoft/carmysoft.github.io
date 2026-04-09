@@ -11,9 +11,9 @@
             background: radial-gradient(circle at top, #1f2937, #000);
             color: white; min-height: 100vh;
         }
-        .topbar { padding: 20px 30px; font-size: 22px; font-weight: bold; }
+        .topbar { padding: 20px 30px; font-size: 22px; font-weight: bold; z-index: 100; position: relative; }
         .topbar a { color: white; text-decoration: none; }
-        .container { text-align: center; padding: 40px 20px; max-width: 800px; margin: auto; }
+        .container { text-align: center; padding: 40px 20px; max-width: 800px; margin: auto; position: relative; z-index: 10; }
         .app-card {
             background: rgba(31, 41, 55, 0.4); padding: 30px; border-radius: 20px;
             border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(5px);
@@ -26,46 +26,58 @@
             color: white; border-radius: 50px; font-weight: bold; cursor: pointer;
         }
         
+        /* ANA POPUP OVERLAY (UYGULAMA DETAYLARI) */
         .overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.9); display: none; justify-content: center; align-items: center; z-index: 1000;
         }
-        
-        /* POPUP GENİŞLİĞİ VE YERLEŞİMİ DÜZELTİLDİ */
         .popup {
             background: #1f2937; padding: 25px; border-radius: 25px;
-            width: 95%; max-width: 600px; /* Genişliği 400px'den 600px'e çıkardık */
-            text-align: center; border: 1px solid #4da6ff;
+            width: 95%; max-width: 600px; text-align: center; border: 1px solid #4da6ff;
             position: relative; animation: pop 0.3s ease;
-            display: flex; flex-direction: column; align-items: center; /* İçerikleri ortalar */
+            display: flex; flex-direction: column; align-items: center;
         }
         @keyframes pop { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         .close { position: absolute; right: 20px; top: 15px; cursor: pointer; font-size: 20px; color: #9ca3af; z-index: 10; }
         
-        /* RESİM ÇERÇEVESİ VE RESİM BÜYÜTÜLDÜ */
+        /* RESİM ÇERÇEVESİ VE RESİM STİLLERİ */
         .screenshot-frame {
             background: rgba(0, 0, 0, 0.3); border-radius: 12px;
             margin: 20px 0; padding: 10px; border: 1px solid rgba(255,255,255,0.1);
-            width: 100%; /* Çerçevenin tüm genişliği kaplamasını sağladık */
-            overflow: hidden;
+            width: 100%; overflow: hidden;
+            cursor: pointer; /* Üzerine gelince el işareti çıksın */
+            transition: 0.2s;
         }
+        .screenshot-frame:hover { transform: scale(1.02); border-color: #4da6ff; }
         .screenshot { 
-            width: 100%; /* Resim çerçevenin %100'ünü kaplar */
-            height: auto; /* Yüksekliği otomatik ayarlar */
-            border-radius: 8px; 
-            display: block; 
-            object-fit: contain; /* Resmi çerçeveye sığdırır, kesmez */
+            width: 100%; height: auto; border-radius: 8px; 
+            display: block; object-fit: contain;
         }
         
         .download-link {
             display: block; padding: 15px; background: #10b981;
             color: white; border-radius: 12px; font-weight: bold;
             text-decoration: none; margin-top: 10px; transition: 0.2s;
-            width: 100%; max-width: 300px; /* Buton çok geniş olmasın diye sınırladık */
+            width: 100%; max-width: 300px;
         }
         .download-link:hover { background: #059669; transform: scale(1.02); }
 
-        footer { text-align: center; padding: 40px; border-top: 1px solid #1f2937; margin-top: 80px; }
+        /* YENİ: TAM EKRAN RESİM GÖSTERME OVERLAY (LIGHTBOX) */
+        .lightbox-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95); /* Çok daha koyu bir arka plan */
+            display: none; justify-content: center; align-items: center;
+            z-index: 2000; /* Ana pop-up'ın da üzerinde olmalı */
+            cursor: zoom-out; /* Kapatmak için tıkla işareti */
+        }
+        .lightbox-image {
+            max-width: 95%; max-height: 95%; /* Resmi ekrana sığdırır */
+            border-radius: 10px; border: 2px solid white;
+            animation: zoomIn 0.3s ease;
+        }
+        @keyframes zoomIn { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+        footer { text-align: center; padding: 40px; border-top: 1px solid #1f2937; margin-top: 80px; position: relative; z-index: 10; }
     </style>
 </head>
 <body>
@@ -87,7 +99,7 @@
             <h2 style="color: #4da6ff; margin-bottom: 5px;">CarMyFile v1.0</h2>
             <p style="font-size: 13px; color: #9ca3af;">Dosyalarınızı saniyeler içinde organize edin.</p>
             
-            <div class="screenshot-frame">
+            <div class="screenshot-frame" onclick="openLightbox('ekran_goruntusu.png')">
                 <img src="ekran_goruntusu.png" alt="Uygulama Görüntüsü" class="screenshot">
             </div>
 
@@ -99,6 +111,10 @@
                 ⚠️ <b>Önemli:</b> Windows koruma uyarısı verirse; <i>Ek Bilgi</i> -> <i>Yine de çalıştır</i> diyerek uygulamayı açabilirsiniz.
             </p>
         </div>
+    </div>
+
+    <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
+        <img src="" alt="Tam Ekran Görüntüsü" class="lightbox-image" id="lightboxImage">
     </div>
 
     <footer>
@@ -114,9 +130,28 @@
     </footer>
 
     <script>
+        // Ana Pop-up Kontrolü
         function openPopup() { document.getElementById("overlay").style.display = "flex"; }
         function closePopup() { document.getElementById("overlay").style.display = "none"; }
-        window.onclick = function(event) { if (event.target == document.getElementById("overlay")) { closePopup(); } }
+        
+        // YENİ: Tam Ekran Resim Kontrolü (Lightbox)
+        function openLightbox(imageSrc) {
+            var lightboxOverlay = document.getElementById("lightboxOverlay");
+            var lightboxImage = document.getElementById("lightboxImage");
+            
+            lightboxImage.src = imageSrc; // Resmi yükle
+            lightboxOverlay.style.display = "flex"; // Göster
+        }
+        
+        function closeLightbox() {
+            var lightboxOverlay = document.getElementById("lightboxOverlay");
+            lightboxOverlay.style.display = "none"; // Gizle
+        }
+
+        // Dışarı tıklayınca kapatma
+        window.onclick = function(event) { 
+            if (event.target == document.getElementById("overlay")) { closePopup(); } 
+        }
     </script>
 </body>
 </html>
