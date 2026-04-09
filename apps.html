@@ -11,7 +11,7 @@
             background: radial-gradient(circle at top, #1f2937, #000);
             color: white; min-height: 100vh;
         }
-        .topbar { padding: 20px 30px; font-size: 22px; font-weight: bold; z-index: 100; position: relative; }
+        .topbar { padding: 20px 30px; font-size: 22px; font-weight: bold; position: relative; z-index: 100; }
         .topbar a { color: white; text-decoration: none; }
         .container { text-align: center; padding: 40px 20px; max-width: 800px; margin: auto; position: relative; z-index: 10; }
         .app-card {
@@ -26,7 +26,7 @@
             color: white; border-radius: 50px; font-weight: bold; cursor: pointer;
         }
         
-        /* ANA POPUP OVERLAY (UYGULAMA DETAYLARI) */
+        /* ANA POPUP OVERLAY */
         .overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.9); display: none; justify-content: center; align-items: center; z-index: 1000;
@@ -40,39 +40,31 @@
         @keyframes pop { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
         .close { position: absolute; right: 20px; top: 15px; cursor: pointer; font-size: 20px; color: #9ca3af; z-index: 10; }
         
-        /* RESİM ÇERÇEVESİ VE RESİM STİLLERİ */
+        /* RESİM ÇERÇEVESİ */
         .screenshot-frame {
             background: rgba(0, 0, 0, 0.3); border-radius: 12px;
             margin: 20px 0; padding: 10px; border: 1px solid rgba(255,255,255,0.1);
-            width: 100%; overflow: hidden;
-            cursor: pointer; /* Üzerine gelince el işareti çıksın */
-            transition: 0.2s;
+            width: 100%; cursor: pointer; transition: 0.2s;
         }
         .screenshot-frame:hover { transform: scale(1.02); border-color: #4da6ff; }
-        .screenshot { 
-            width: 100%; height: auto; border-radius: 8px; 
-            display: block; object-fit: contain;
-        }
+        .screenshot { width: 100%; height: auto; border-radius: 8px; display: block; object-fit: contain; }
         
         .download-link {
             display: block; padding: 15px; background: #10b981;
             color: white; border-radius: 12px; font-weight: bold;
             text-decoration: none; margin-top: 10px; transition: 0.2s;
-            width: 100%; max-width: 300px;
+            width: 100%; max-width: 300px; text-align: center;
         }
         .download-link:hover { background: #059669; transform: scale(1.02); }
 
-        /* YENİ: TAM EKRAN RESİM GÖSTERME OVERLAY (LIGHTBOX) */
+        /* TAM EKRAN RESİM GÖSTERME (LIGHTBOX) */
         .lightbox-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); /* Çok daha koyu bir arka plan */
-            display: none; justify-content: center; align-items: center;
-            z-index: 2000; /* Ana pop-up'ın da üzerinde olmalı */
-            cursor: zoom-out; /* Kapatmak için tıkla işareti */
+            background: rgba(0,0,0,0.95); display: none; justify-content: center; align-items: center;
+            z-index: 2000; cursor: zoom-out;
         }
         .lightbox-image {
-            max-width: 95%; max-height: 95%; /* Resmi ekrana sığdırır */
-            border-radius: 10px; border: 2px solid white;
+            max-width: 95%; max-height: 95%; border-radius: 10px; border: 2px solid white;
             animation: zoomIn 0.3s ease;
         }
         @keyframes zoomIn { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
@@ -118,37 +110,27 @@
     </div>
 
     <footer>
-        <p style="color: #9ca3af; font-size: 14px; margin-bottom: 12px;">
-            Bir hata mı buldunuz veya yeni bir fikriniz mi var? Destek hattımızdan bize ulaşın.
-        </p>
-        <a href="mailto:carmysoft.destek@gmail.com" style="color: #4da6ff; text-decoration: none; font-weight: bold; border: 1px solid #4da6ff; padding: 8px 25px; border-radius: 50px; display: inline-block;">
-            carmysoft.destek@gmail.com
-        </a>
-        <p style="color: #4b5563; font-size: 12px; margin-top: 40px;">
-            © 2026 CarmySoft | Tüm Hakları Saklıdır.
-        </p>
+        <p style="color: #9ca3af; font-size: 14px; margin-bottom: 12px;">Bir hata mı buldunuz? Destek hattımızdan bize ulaşın.</p>
+        <a href="mailto:carmysoft.destek@gmail.com" style="color: #4da6ff; text-decoration: none; font-weight: bold; border: 1px solid #4da6ff; padding: 8px 25px; border-radius: 50px; display: inline-block;">carmysoft.destek@gmail.com</a>
+        <p style="color: #4b5563; font-size: 12px; margin-top: 40px;">© 2026 CarmySoft | Tüm Hakları Saklıdır.</p>
     </footer>
 
     <script>
-        // Ana Pop-up Kontrolü
         function openPopup() { document.getElementById("overlay").style.display = "flex"; }
         function closePopup() { document.getElementById("overlay").style.display = "none"; }
         
-        // YENİ: Tam Ekran Resim Kontrolü (Lightbox)
+        // TAM EKRAN FONKSİYONLARI
         function openLightbox(imageSrc) {
             var lightboxOverlay = document.getElementById("lightboxOverlay");
             var lightboxImage = document.getElementById("lightboxImage");
-            
-            lightboxImage.src = imageSrc; // Resmi yükle
-            lightboxOverlay.style.display = "flex"; // Göster
+            lightboxImage.src = imageSrc;
+            lightboxOverlay.style.display = "flex";
         }
         
         function closeLightbox() {
-            var lightboxOverlay = document.getElementById("lightboxOverlay");
-            lightboxOverlay.style.display = "none"; // Gizle
+            document.getElementById("lightboxOverlay").style.display = "none";
         }
 
-        // Dışarı tıklayınca kapatma
         window.onclick = function(event) { 
             if (event.target == document.getElementById("overlay")) { closePopup(); } 
         }
