@@ -1,144 +1,155 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarmySoft | Ana Sayfa</title>
-
-    <style>
-        /* TEMEL AYARLAR */
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: radial-gradient(circle at top, #1f2937, #000);
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* UST BAR */
-        .topbar {
-            padding: 20px 30px;
-            font-size: 22px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        /* ANA ICERIK */
-        .hero {
-            text-align: center;
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: auto;
-            flex: 1;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        .hero p {
-            color: #d1d5db;
-            line-height: 1.7;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-        }
-
-        /* BUTON */
-        .btn {
-            display: inline-block;
-            padding: 14px 35px;
-            background: #ffffff;
-            color: #000000;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255,255,255,0.2);
-            background: #f3f4f6;
-        }
-
-        /* KARTLAR */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 50px;
-        }
-
-        .card {
-            background: rgba(31, 41, 55, 0.4);
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(5px);
-        }
-
-        .card strong {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-        }
-
-        .card small {
-            color: #9ca3af;
-        }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 25px;
-            font-size: 13px;
-            color: #6b7280;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-    </style>
-</head>
-<body>
-
-    <div class="topbar">CarmySoft</div>
-
-    <main class="hero">
-        <h1>Hoş Geldiniz</h1>
-        <p>
-            CarmySoft olarak, teknolojiye yön veren bağımsız yazılım projeleri geliştiriyoruz. 
-            Yenilikçi çözümlerimizle dijital dünyayı daha hızlı ve verimli hale getirmeyi amaçlıyoruz.
-        </p>
-
-        <a class="btn" href="apps.html">Uygulamaları Keşfet</a>
-
-        <div class="cards">
-            <div class="card">
-                <strong>⚡ Hızlı Yazılımlar</strong>
-                <small>Performans odaklı kod yapısı.</small>
-            </div>
-            <div class="card">
-                <strong>📦 Yeni Projeler</strong>
-                <small>Sürekli genişleyen ürün yelpazesi.</small>
-            </div>
-            <div class="card">
-                <strong>💡 Sürekli Gelişim</strong>
-                <small>Geri bildirimlerle evrilen sistemler.</small>
-            </div>
-        </div>
-    </main>
-
-    <footer>© 2026 CarmySoft | Tüm Hakları Saklıdır.</footer>
-
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarmySoft | Ana Sayfa</title>
+
+    <style>
+        /* TEMEL AYARLAR */
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: radial-gradient(circle at top, #1f2937, #000);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* UST BAR */
+        .topbar {
+            padding: 20px 30px;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* ANA ICERIK */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: auto;
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: #9ca3af;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        /* BUTON */
+        .btn {
+            display: inline-block;
+            background: #fff;
+            color: #000;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255,255,255,0.2);
+        }
+
+        /* KARTLAR */
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 15px;
+            width: 200px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .card strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .card small {
+            color: #9ca3af;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="topbar">CarmySoft</div>
+
+    <main class="hero">
+        <h1>Hoş Geldiniz</h1>
+        <p>
+            CarmySoft olarak, teknolojiye yön veren bağımsız yazılım projeleri geliştiriyoruz. 
+            Yenilikçi çözümlerimizle dijital dünyayı daha hızlı ve verimli hale getirmeyi amaçlıyoruz.
+        </p>
+
+        <a class="btn" href="apps.html">Uygulamaları Keşfet</a>
+
+        <div class="cards">
+            <div class="card">
+                <strong>⚡ Hızlı Yazılımlar</strong>
+                <small>Performans odaklı kod yapısı.</small>
+            </div>
+            <div class="card">
+                <strong>🛡️ Güvenli Yapı</strong>
+                <small>Verileriniz her zaman güvende.</small>
+            </div>
+            <div class="card">
+                <strong>🎨 Modern Tasarım</strong>
+                <small>Kullanıcı dostu arayüzler.</small>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p style="color: #9ca3af; font-size: 14px; margin-bottom: 12px;">Bir hata mı buldunuz veya bir öneriniz mi var?</p>
+        <a href="mailto:carmysoft.destek@gmail.com" style="color: #4da6ff; text-decoration: none; font-weight: bold; border: 1px solid #4da6ff; padding: 8px 25px; border-radius: 50px; display: inline-block;">
+            Bize ulaşın: carmysoft.destek@gmail.com
+        </a>
+        <p style="color: #4b5563; font-size: 12px; margin-top: 40px;">© 2026 CarmySoft | Tüm Hakları Saklıdır.</p>
+    </footer>
+
+</body>
+</html>
